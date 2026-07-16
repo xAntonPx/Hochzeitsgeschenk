@@ -1,0 +1,1 @@
+window.SITE_CONFIG={unlockAt:"2026-09-10T20:00:00+02:00",name:"Mein Schatzulka",countdownLine:"Manche Überraschungen brauchen den richtigen Moment …",music:"musik/unser-lied.mp3",photos:["bilder/foto1.jpg","bilder/foto2.jpg","bilder/foto3.jpg","bilder/foto4.jpg","bilder/foto5.jpg"]};
