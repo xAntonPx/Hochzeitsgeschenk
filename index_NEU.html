@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Für mein Schatzulka ❤️</title>
+<style>
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:#02070d;color:#fff7ee;font-family:Georgia,serif;overflow-x:hidden}
+#stars{position:fixed;inset:0;z-index:20;pointer-events:none}.page,.panel{min-height:100svh;position:relative;display:grid;place-items:center;overflow:hidden}.hidden{display:none!important}
+.bg,.endingbg{position:absolute;inset:0;background:url('./background.jpg') center/cover no-repeat;transform:scale(1.03)}
+.endingbg{background-image:url('./foto2.jpg');background-position:center 35%}.blur{filter:blur(5px);transform:scale(1.08)}
+.shade{position:absolute;inset:0;background:linear-gradient(rgba(1,8,15,.28),rgba(1,8,15,.9))}.dark{background:rgba(1,7,13,.83)}
+.card,.content{position:relative;z-index:2;text-align:center;width:min(900px,92%);padding:32px}
+h1,h2,h3{font-family:'Snell Roundhand','URW Chancery L',cursive;color:#f0b64f;font-weight:500}
+h1{font-size:clamp(2.8rem,8vw,6rem);margin:.1em}h2{font-size:clamp(2.4rem,7vw,5rem);margin:.2em}h3{font-size:clamp(3rem,10vw,7rem);color:#ef6f83;margin:.1em}
+.line{color:#f0b64f;font-size:1.5rem;margin:18px auto 26px}.line:before,.line:after{content:'';display:inline-block;width:min(25vw,180px);height:1px;background:#f0b64f;vertical-align:middle;margin:0 12px}
+.timer{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:34px 0}.timer strong{display:block;font-size:clamp(2rem,7vw,4.5rem);color:#f0b64f;font-weight:500}.timer span{display:block;color:#f0b64f;text-transform:uppercase;font-size:.85rem}
+.date{display:inline-block;border:1px solid rgba(255,255,255,.45);border-radius:18px;padding:15px 24px;background:rgba(0,0,0,.28)}
+button{cursor:pointer}.card button{border:1px solid #ff8da0;background:linear-gradient(135deg,#c93256,#ef5d78);color:#fff;border-radius:18px;padding:18px 28px;font-family:Georgia,serif;font-size:clamp(1.05rem,3vw,1.5rem)}
+.panel{background:radial-gradient(circle at 50% 15%,#0b1b2a,#04101a 50%,#02070d)}.content p{font-size:clamp(1.05rem,2.6vw,1.45rem);line-height:1.65;margin:.2em}.rose{color:#ef6f83!important}.wide{width:min(1200px,96%)}
+.gallery{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;align-items:center}.gallery img{width:100%;height:clamp(260px,42vw,560px);object-fit:cover;border-radius:18px;border:1px solid #f0b64f;box-shadow:0 8px 25px #000}
+.gallery img:nth-child(2),.gallery img:nth-child(4){transform:translateY(18px)}.gallery img:nth-child(3){transform:scale(1.06)}
+.suitcase{border:0;background:transparent;font-size:clamp(8rem,30vw,18rem);filter:drop-shadow(0 12px 24px #000)}.suitcase.open{animation:bounce .8s}
+.ending .content{margin-top:auto;margin-bottom:7vh}.big{font-size:clamp(1.4rem,4vw,2.3rem)!important}.forever{border:1px solid rgba(255,255,255,.55);background:rgba(0,0,0,.3);color:#fff;border-radius:14px;padding:14px 26px;font-family:Georgia,serif;font-size:1.1rem}
+.reveal{opacity:0;transform:translateY(24px);transition:1s}.reveal.visible{opacity:1;transform:none}@keyframes bounce{50%{transform:scale(1.12) rotate(-2deg)}}
+@media(max-width:760px){.timer{grid-template-columns:repeat(2,1fr)}.gallery{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;padding:0 7vw 24px}.gallery img{min-width:72vw;height:58vh;scroll-snap-align:center;transform:none!important}}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+<section id="countdownPage" class="page"><div class="bg"></div><div class="shade"></div><div class="card">
+<h1>Mein Schatzulka</h1><p>Manche Überraschungen brauchen den richtigen Moment …</p><div class="line">♡</div>
+<div class="timer"><div><strong id="d">000</strong><span>Tage</span></div><div><strong id="h">00</strong><span>Stunden</span></div><div><strong id="m">00</strong><span>Minuten</span></div><div><strong id="s">00</strong><span>Sekunden</span></div></div>
+<div class="date">📅 10.09.2026 &nbsp; 🕘 20:00 Uhr</div></div></section>
+<section id="unlockPage" class="page hidden"><div class="bg blur"></div><div class="shade dark"></div><div class="card"><h2>Die Zeit ist gekommen …</h2><div class="line">♥</div><button id="openBtn">♥ Öffne deine Überraschung ♥</button></div></section>
+<main id="story" class="hidden">
+<section class="panel"><div class="content reveal"><h2>Mein Schatzulka,</h2><div class="line">♥</div><p>jeder Tag mit dir ist für mich ein Geschenk.</p><p>Du bringst so viel Liebe, Freude und Wärme in mein Leben.</p><p>Du bist mein Zuhause, mein Lieblingsmensch, mein größtes Glück.</p><br><p>Deshalb möchte ich dir heute etwas schenken …</p><p>Etwas, das wir gemeinsam erleben werden.</p><p>Etwas, das uns noch näher zusammenbringt</p><p>und Erinnerungen schafft, die für immer bleiben.</p><p class="rose">Ich liebe dich von ganzem Herzen.</p></div></section>
+<section class="panel"><div class="content wide reveal"><h2>Unsere schönsten Momente ❤️</h2><div class="line">♥</div><div class="gallery">
+<img src="./foto1.jpg" alt=""><img src="./foto2.jpg" alt=""><img src="./foto3.jpg" alt=""><img src="./foto4.jpg" alt=""><img src="./foto5.jpg" alt="">
+</div></div></section>
+<section class="panel"><div class="content reveal"><h2>Pack deine Koffer …</h2><div class="line">♥</div><button id="suitcase" class="suitcase">🧳</button><div id="gift" class="hidden"><p>Denn wir fahren gemeinsam nach</p><h3>Bayern! 🏔️</h3><p class="rose">♥ ♥ ♥</p></div></div></section>
+<section class="panel ending"><div class="endingbg"></div><div class="shade"></div><div class="content reveal"><h2>Ich freue mich</h2><p class="big">auf jedes Abenteuer mit dir.</p><div class="line">♥</div><h3>Ich liebe dich.</h3><button class="forever">♥ Für immer ♥</button></div></section>
+</main>
+<audio id="music" src="./unser-lied.mp3" loop preload="auto"></audio>
+<script>
+const $=s=>document.querySelector(s),preview=new URLSearchParams(location.search).get('preview')==='1';
+const target=new Date("2026-09-10T20:00:00+02:00").getTime();let timer;
+function tick(){const diff=target-Date.now();if(preview||diff<=0){clearInterval(timer);$('#countdownPage').classList.add('hidden');$('#unlockPage').classList.remove('hidden');return}
+$('#d').textContent=String(Math.floor(diff/86400000)).padStart(3,'0');$('#h').textContent=String(Math.floor(diff/3600000)%24).padStart(2,'0');$('#m').textContent=String(Math.floor(diff/60000)%60).padStart(2,'0');$('#s').textContent=String(Math.floor(diff/1000)%60).padStart(2,'0')}
+timer=setInterval(tick,1000);tick();
+$('#openBtn').onclick=async()=>{$('#unlockPage').classList.add('hidden');$('#story').classList.remove('hidden');try{await $('#music').play()}catch(e){alert("Die Musikdatei wurde nicht gefunden. Prüfe, ob sie genau unser-lied.mp3 heißt.")}window.scrollTo(0,0);observe()};
+$('#suitcase').onclick=()=>{$('#suitcase').classList.add('open');setTimeout(()=>$('#gift').classList.remove('hidden'),450)};
+function observe(){const o=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('visible')),{threshold:.18});document.querySelectorAll('.reveal').forEach(el=>o.observe(el))}observe();
+const c=$('#stars'),x=c.getContext('2d');let p=[];function resize(){c.width=innerWidth*devicePixelRatio;c.height=innerHeight*devicePixelRatio;x.setTransform(devicePixelRatio,0,0,devicePixelRatio,0,0);p=Array.from({length:90},()=>({x:Math.random()*innerWidth,y:Math.random()*innerHeight,r:Math.random()*1.4+.2,a:Math.random()}))}function draw(){x.clearRect(0,0,innerWidth,innerHeight);p.forEach(q=>{q.a+=.02;x.globalAlpha=.35+.65*Math.abs(Math.sin(q.a));x.fillStyle='#ffd36f';x.beginPath();x.arc(q.x,q.y,q.r,0,Math.PI*2);x.fill()});requestAnimationFrame(draw)}addEventListener('resize',resize);resize();draw();
+</script>
+</body></html>
