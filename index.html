@@ -1,0 +1,258 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#02070d">
+<title>Für mein Schatzulka ❤️</title>
+<style>
+:root{--gold:#efb64f;--rose:#ef6680;--night:#02070d;--white:#fff8ef}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--night);color:var(--white);font-family:Georgia,"Times New Roman",serif;overflow-x:hidden}
+.hidden{display:none!important}
+#stars{position:fixed;inset:0;z-index:50;pointer-events:none}
+.page,.chapter{position:relative;min-height:100svh;display:grid;place-items:center;overflow:hidden}
+.full-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;display:block}
+.blur{filter:blur(6px);transform:scale(1.07)}
+.overlay{position:absolute;inset:0;background:linear-gradient(180deg,rgba(1,7,13,.30),rgba(1,7,13,.91))}
+.overlay.darker{background:rgba(1,7,13,.82)}
+.card,.content{position:relative;z-index:2;width:min(920px,92%);padding:30px;text-align:center}
+h1,h2,h3{margin:.18em 0;color:var(--gold);font-family:"Snell Roundhand","Apple Chancery",cursive;font-weight:500}
+h1{font-size:clamp(3rem,9vw,6rem)}
+h2{font-size:clamp(2.5rem,8vw,5rem)}
+h3{font-size:clamp(3.2rem,11vw,7rem);color:var(--rose)}
+.subtitle{font-size:clamp(1.05rem,3.2vw,1.65rem);line-height:1.55}
+.divider{color:var(--gold);font-size:1.35rem;margin:20px 0 28px}
+.divider:before,.divider:after{content:"";display:inline-block;width:min(26vw,180px);height:1px;background:var(--gold);vertical-align:middle;margin:0 12px}
+.timer{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin:28px 0}
+.timer strong{display:block;color:var(--gold);font-size:clamp(2.1rem,7vw,4.6rem);font-weight:500}
+.timer span{display:block;color:var(--gold);font-size:.82rem;text-transform:uppercase;letter-spacing:.08em}
+.date{display:inline-block;padding:14px 22px;border:1px solid rgba(255,255,255,.48);border-radius:17px;background:rgba(0,0,0,.28)}
+.main-button{border:1px solid #ff90a4;border-radius:18px;padding:18px 27px;background:linear-gradient(135deg,#cb3156,#ef5c78);color:white;font:1.25rem Georgia,serif;box-shadow:0 0 34px rgba(239,92,120,.28)}
+.chapter{background:radial-gradient(circle at 50% 12%,#0b1b29 0,#04101a 48%,#02070d 100%)}
+.content p{font-size:clamp(1.05rem,2.8vw,1.45rem);line-height:1.63;margin:.28em 0}
+.rose{color:var(--rose)!important;margin-top:24px!important}
+.carousel{position:relative;width:min(560px,92vw);margin:26px auto 0}
+.carousel-frame{position:relative;width:100%;height:58vh;min-height:390px;max-height:620px;overflow:hidden;border-radius:22px;border:1px solid rgba(239,182,79,.85);box-shadow:0 10px 28px rgba(0,0,0,.48);background:#07131e}
+.carousel-frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;opacity:0;transition:opacity .35s ease}
+.carousel-frame img.active{opacity:1}
+.carousel-button{position:absolute;top:50%;transform:translateY(-50%);z-index:3;width:46px;height:46px;border-radius:50%;border:1px solid rgba(255,255,255,.55);background:rgba(0,0,0,.42);color:white;font-size:1.7rem;line-height:1}
+.carousel-button.prev{left:10px}.carousel-button.next{right:10px}
+.carousel-dots{display:flex;justify-content:center;gap:8px;margin-top:16px}
+.carousel-dots button{width:9px;height:9px;border:0;border-radius:50%;padding:0;background:rgba(255,255,255,.35)}
+.carousel-dots button.active{background:var(--rose)}
+.swipe-hint{color:var(--gold);font-size:1rem;margin-top:12px}
+.suitcase{border:0;background:transparent;font-size:clamp(8rem,31vw,18rem);cursor:pointer;filter:drop-shadow(0 16px 28px #000)}
+.suitcase.open{animation:bounce .85s ease}
+.gift-reveal{animation:fadeUp .9s ease both}
+.big{font-size:clamp(1.45rem,4vw,2.35rem)!important}
+.forever{border:1px solid rgba(255,255,255,.55);border-radius:14px;padding:14px 25px;background:rgba(0,0,0,.32);color:white;font:1.08rem Georgia,serif}
+@keyframes bounce{0%,100%{transform:scale(1)}50%{transform:scale(1.12) rotate(-2deg)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(24px)}to{opacity:1;transform:none}}
+@media(max-width:760px){
+  .timer{grid-template-columns:repeat(2,1fr)}
+  .carousel-frame{height:56vh;min-height:380px}
+}
+</style>
+</head>
+<body>
+<canvas id="stars"></canvas>
+
+<section id="countdown" class="page">
+  <img class="full-photo" src="./background.jpg" alt="Unser Hochzeitsfoto">
+  <div class="overlay"></div>
+  <div class="card">
+    <h1>Mein Schatzulka ❤️</h1>
+    <p class="subtitle">Manche Überraschungen brauchen den richtigen Moment …</p>
+    <div class="divider">♡</div>
+    <div class="timer">
+      <div><strong id="days">000</strong><span>Tage</span></div>
+      <div><strong id="hours">00</strong><span>Stunden</span></div>
+      <div><strong id="minutes">00</strong><span>Minuten</span></div>
+      <div><strong id="seconds">00</strong><span>Sekunden</span></div>
+    </div>
+    <div class="date">📅 10.09.2026 &nbsp;&nbsp; 🕘 20:00 Uhr</div>
+  </div>
+</section>
+
+<section id="unlock" class="page hidden">
+  <img class="full-photo blur" src="./background.jpg" alt="Unser Hochzeitsfoto">
+  <div class="overlay darker"></div>
+  <div class="card">
+    <h2>Die Zeit ist gekommen …</h2>
+    <div class="divider">♥</div>
+    <button id="open" class="main-button">♥ Öffne deine Überraschung ♥</button>
+  </div>
+</section>
+
+<main id="story" class="hidden">
+  <section class="chapter">
+    <div class="content">
+      <h2>Mein Schatzulka,</h2>
+      <div class="divider">♥</div>
+      <p>jeder Tag mit dir ist für mich ein Geschenk.</p>
+      <p>Du bringst so viel Liebe, Freude und Wärme in mein Leben.</p>
+      <p>Du bist mein Zuhause, mein Lieblingsmensch, mein größtes Glück.</p>
+      <br>
+      <p>Deshalb möchte ich dir heute etwas schenken …</p>
+      <p>Etwas, das wir gemeinsam erleben werden.</p>
+      <p>Etwas, das uns noch näher zusammenbringt</p>
+      <p>und Erinnerungen schafft, die für immer bleiben.</p>
+      <p class="rose">Ich liebe dich von ganzem Herzen.</p>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="content">
+      <h2>Unsere schönsten Momente ❤️</h2>
+      <div class="divider">♥</div>
+      <div class="carousel">
+        <button class="carousel-button prev" id="prevPhoto" aria-label="Vorheriges Foto">‹</button>
+        <div class="carousel-frame" id="carouselFrame">
+          <img class="active" src="./foto1.jpg" alt="Unser schöner Moment 1">
+          <img src="./foto2.jpg" alt="Unser schöner Moment 2">
+          <img src="./foto3.jpg" alt="Unser schöner Moment 3">
+          <img src="./foto4.jpg" alt="Unser schöner Moment 4">
+          <img src="./foto5.jpg" alt="Unser schöner Moment 5">
+        </div>
+        <button class="carousel-button next" id="nextPhoto" aria-label="Nächstes Foto">›</button>
+        <div class="carousel-dots" id="carouselDots"></div>
+      </div>
+      <p class="swipe-hint">Wische über das Bild oder nutze die Pfeile</p>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <div class="content">
+      <h2>Pack deine Koffer …</h2>
+      <div class="divider">♥</div>
+      <button id="case" class="suitcase" aria-label="Geschenk öffnen">🧳</button>
+      <div id="gift" class="hidden gift-reveal">
+        <p>Denn wir fahren gemeinsam nach</p>
+        <h3>Bayern! 🏔️</h3>
+        <p class="rose">♥ ♥ ♥</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="chapter">
+    <img class="full-photo" src="./foto2.jpg" alt="Unser gemeinsames Foto">
+    <div class="overlay"></div>
+    <div class="content">
+      <h2>Ich freue mich</h2>
+      <p class="big">auf jedes Abenteuer mit dir.</p>
+      <div class="divider">♥</div>
+      <h3>Ich liebe dich.</h3>
+      <button class="forever">♥ Für immer ♥</button>
+    </div>
+  </section>
+</main>
+
+<audio id="music" src="./unser-lied.mp3" loop preload="auto"></audio>
+
+<script>
+const $ = (s) => document.querySelector(s);
+const preview = new URLSearchParams(location.search).get("preview") === "1";
+const target = new Date("2026-09-10T20:00:00+02:00").getTime();
+let timer;
+
+function updateTimer() {
+  const diff = target - Date.now();
+
+  if (preview || diff <= 0) {
+    clearInterval(timer);
+    $("#countdown").classList.add("hidden");
+    $("#unlock").classList.remove("hidden");
+    return;
+  }
+
+  $("#days").textContent = String(Math.floor(diff / 86400000)).padStart(3, "0");
+  $("#hours").textContent = String(Math.floor(diff / 3600000) % 24).padStart(2, "0");
+  $("#minutes").textContent = String(Math.floor(diff / 60000) % 60).padStart(2, "0");
+  $("#seconds").textContent = String(Math.floor(diff / 1000) % 60).padStart(2, "0");
+}
+
+timer = setInterval(updateTimer, 1000);
+updateTimer();
+
+$("#open").addEventListener("click", async () => {
+  $("#unlock").classList.add("hidden");
+  $("#story").classList.remove("hidden");
+  window.scrollTo(0, 0);
+  try { await $("#music").play(); } catch (error) {}
+});
+
+$("#case").addEventListener("click", () => {
+  $("#case").classList.add("open");
+  setTimeout(() => $("#gift").classList.remove("hidden"), 450);
+});
+
+const carouselImages = Array.from(document.querySelectorAll("#carouselFrame img"));
+const dotsContainer = $("#carouselDots");
+let currentPhoto = 0;
+let touchStartX = 0;
+
+function showPhoto(index) {
+  currentPhoto = (index + carouselImages.length) % carouselImages.length;
+  carouselImages.forEach((img, i) => img.classList.toggle("active", i === currentPhoto));
+  dotsContainer.querySelectorAll("button").forEach((dot, i) => dot.classList.toggle("active", i === currentPhoto));
+}
+
+carouselImages.forEach((_, i) => {
+  const dot = document.createElement("button");
+  dot.setAttribute("aria-label", `Foto ${i + 1}`);
+  dot.addEventListener("click", () => showPhoto(i));
+  dotsContainer.appendChild(dot);
+});
+
+$("#prevPhoto").addEventListener("click", () => showPhoto(currentPhoto - 1));
+$("#nextPhoto").addEventListener("click", () => showPhoto(currentPhoto + 1));
+
+const carouselFrame = $("#carouselFrame");
+carouselFrame.addEventListener("touchstart", (event) => {
+  touchStartX = event.changedTouches[0].clientX;
+}, { passive: true });
+
+carouselFrame.addEventListener("touchend", (event) => {
+  const delta = event.changedTouches[0].clientX - touchStartX;
+  if (Math.abs(delta) > 40) showPhoto(currentPhoto + (delta < 0 ? 1 : -1));
+}, { passive: true });
+
+showPhoto(0);
+
+const canvas = $("#stars");
+const ctx = canvas.getContext("2d");
+let stars = [];
+
+function resize() {
+  canvas.width = innerWidth * devicePixelRatio;
+  canvas.height = innerHeight * devicePixelRatio;
+  ctx.setTransform(devicePixelRatio, 0, 0, devicePixelRatio, 0, 0);
+  stars = Array.from({ length: 85 }, () => ({
+    x: Math.random() * innerWidth,
+    y: Math.random() * innerHeight,
+    r: 0.2 + Math.random() * 1.25,
+    t: Math.random() * 6
+  }));
+}
+
+function animate() {
+  ctx.clearRect(0, 0, innerWidth, innerHeight);
+  for (const star of stars) {
+    star.t += 0.02;
+    ctx.globalAlpha = 0.3 + 0.7 * Math.abs(Math.sin(star.t));
+    ctx.fillStyle = "#ffd36d";
+    ctx.beginPath();
+    ctx.arc(star.x, star.y, star.r, 0, Math.PI * 2);
+    ctx.fill();
+  }
+  requestAnimationFrame(animate);
+}
+
+addEventListener("resize", resize);
+resize();
+animate();
+</script>
+</body>
+</html>
